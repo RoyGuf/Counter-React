@@ -6,7 +6,7 @@ const userId = localStorage.getItem("userId") || Math.random();
 localStorage.setItem("userId", userId)
 
 // connect to a webSocket on port 8080
-const ws = new WebSocket('ws://localhost:8080/');
+const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET);
 ws.onopen = function(){
   ws.send(`Hello from ${userId}`);
 };
